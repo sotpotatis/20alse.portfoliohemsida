@@ -11,5 +11,5 @@ update-ssh-job:
     - apk add lftp
     - echo "Uploading to server..."
     #- sshpass -p $SFTP_PASSWORD sftp 20alse@hem.ssis.nu:/portfolio .
-    - lftp -e "open hem.ssis.nu; user 20alse; password $SFTP_PASSWORD; mirror -X .* -X ./portfolio/*/ --reverse --verbose; bye"
+    - lftp -e "open hem.ssis.nu; user 20alse; $SFTP_PASSWORD; mirror -X .* -X ./portfolio/*/ --reverse --verbose; bye"
     - echo "Uploaded to server."
