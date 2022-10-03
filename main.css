@@ -1,0 +1,125 @@
+/* Importera typsnitt */
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+
+body {
+  background-color: #e3f2fd;
+  /* Ta bort margin och padding på body. Jag stylar den på andra sätt. */
+  padding: 0px;
+  margin: 0px;
+}
+
+/* Generell stil: Samuel rekommenderar att man har allt innehåll i en egen div */
+#main-website {
+  font-family: "Poppins", "sans-serif";
+}
+/* Textstilar */
+.subheading {
+  color: grey;
+}
+
+/* Content-wrapper: en box som innehåller text */
+.content-wrapper {
+  background-color: white;
+  border: 2px solid gray;
+  border-radius: 7px;
+  margin: 5vh 20vw;
+  padding: 1em 4em;
+  box-shadow: 0 3px 3px rgba(0,0,0,0.12), 0 2px 2px rgba(0,0,0,0.24); /* "Material design" shadow. Samuel rekommenderade detta. */
+  overflow: auto;
+}
+/* Styla osynliga länkar så att de inte syns (se JavaScript) */
+a [name="anchor"]{
+  margin: 0px;
+}
+
+/* Header: sidans sidhuvud */
+#header {
+  background-color: #263450;
+  color: white;
+  border: 2px 0px solid white;
+  position: sticky;  /* Positionerar headern på toppen av sidan hela tiden */
+  padding-left: 1em;
+  padding-right: 1em;
+  top: 0;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap; /* Hjälper till för små skärmar */
+  justify-content: space-around;
+  width: 100%;
+}
+#header h1 {
+  font-weight: bolder;
+}
+
+/* Wrapper för menyelement */
+#menu-items {
+  margin: 1em 2em;
+}
+.menu-item {
+  color: white;
+  padding: 1em 0.5em;
+}
+.menu-item:hover  {
+  cursor: pointer;
+  background-color: #e0f2ff;
+  color: black;
+  transition: 0.3s;
+}
+
+.menu-item[data-active="true"] {
+  background-color: #e0f2ff;
+  color: black;
+}
+
+/* Skrollningsgränser: används för att kunna skrolla med JavaScript */
+#about-me {
+  scroll-margin-top: 10em;
+}
+
+#project-showcase {
+  scroll-margin-top: 12em;
+}
+
+/* Projekt-showcase: ruta där jag snackar om mina projekt. Ska ha en bild,
+text, och en knapp */
+.project {
+  display: grid;
+  grid-template-columns: 33.33% auto; /* Bilden täcker 1/3, resten fyller hela raden*/
+  column-gap: 3em;
+  margin: 2em 0em;
+}
+.project img {
+  padding: 1em;
+  max-width: 100%;
+  object-fit: contain;
+}
+.project button {
+  break-before: always;
+  padding: 0.5em 3em;
+  color: white;
+  background-color: #455a64;
+  border: 0.1em solid gray;
+}
+.project button:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+/* Responsiv design för mobiler (överkurs) */
+@media(max-width:640px){
+  .project {
+    /* Ha inte två vertikala kolumner. Bryt till en ny rad
+    när innehållet når max. */
+    grid-template-columns: 100%;
+    grid-auto-rows: max-content;
+  }
+  .project img {
+    padding: 0px; /* Ta bort padding runt bilder på mobilen */
+  }
+  .content-wrapper {
+    /* Minska margin och padding på mobilen */
+    margin: 5vh 5vw;
+    padding: 0.5em 2em;
+    hyphens: auto; /* Lägg till bindestreck om innehållet behöver delas upp på fler rader */
+  }
+}

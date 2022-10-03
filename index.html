@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="sv">
+  <head>
+    <!-- Metataggar för titel, skalning för mobiler etc.-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>albins hemsida</title>
+    <!-- Stylesheet (CSS) -->
+    <link rel="stylesheet" href="main.css">
+    <link rel="icon" href="./favicon.ico" type="image/x-icon">
+    <!-- Ikoner (Iconify) -->
+    <script src="https://code.iconify.design/iconify-icon/1.0.0-beta.3/iconify-icon.min.js"></script>
+  </head>
+  <body>
+    <div id="main-website">
+    <!-- Header - Meny och sidrubrik längst upp på sidan-->
+    <div id="header">
+      <h1>Albins portfolio</h1>
+      <nav id="menu-items">
+        <a class="menu-item" onClick="handleMenuClick(this)" data-controls="about-me">Om mig</a>
+        <a class="menu-item" onClick="handleMenuClick(this)" data-controls="project-showcase">Showcase</a>
+        <a class="menu-item" onClick="handleMenuClick(this)" data-controls="contact">Kontakt</a>
+    </nav>
+      </div>
+    <!-- Om mig-sektion -->
+    <div id="about-me" class="content-wrapper">
+    <a name="anchor" data-for="about-me">&nbsp;</a>
+    <h1>Om mig</h1>
+      <h3 class="subheading">Hej! Jag heter Albin!</h3>
+      <p>
+         Jag studerar informations- och medieteknik på SSIS. Det är mitt tredje år här.
+        Jag är intresserad av teknik och programmering. Några personliga favoriter är att bygga hemsidor och arbeta med elektronik
+        (typ mikrokontrollers). Jag började programmera när jag var typ 7 (dock i grafiska språk) och kan nu flera programmeringsspråk.
+        Detta är en hemsida för kursen Webbutveckling 1. Kanske blir denna portfoliohemsida min guldbiljett till ett A eller så tycker
+        du som besökare att den är absolut horribel.
+      </p>
+  </div>
+    <!-- Showcase-sektion ("vad jag har gjort") -->
+    <div id="project-showcase" class="content-wrapper">
+    <a name="anchor" data-for="project-showcase">&nbsp;</a>
+      <h1>Showcase</h1>
+        <p>Här hittar du några projekt som jag har gjort.</p>
+        <!-- Info om lunchmeny-hemsidan -->
+        <div class="project">
+          <img alt="Skärmdump på min hemsida som visar Eatery-lunchmenyn." src="https://20alse.ssis.nu/start_page_assets/lunchmeny_hemsida.png"/>
+          <div>
+            <h3>
+              Lunchmeny
+            </h3>
+            <p>
+              Vad gör man när Eatery tar bort sin lunchmeny så att man inte kan se det någonstans? Jo, min fantastiska enkla hemsida kommer till undsättning! Det bygger på data
+              från mitt egna API, som är lite mer komplext. Om du är intresserad så finns API:et på <a href="https://GitHub.com/sotpotatis/EateryCacher" target="_blank">GitHub</a>.
+            </p>
+            <button onclick="openURL('https://20alse.ssis.nu/lunch')">Till menyn!</button>
+          </div>
+        </div>
+        <!-- Info om Fishy-spelet -->
+        <div class="project">
+          <img alt="Skärmdump på mitt spel 'Fishy'." src="https://20alse.ssis.nu/start_page_assets/fishy.png"/>
+          <div>
+            <h3>
+              Fishy
+            </h3>
+            <p>
+              Ett spel utan slut där du är en fiskare som fiskar i det djupa havet. Komplett med powerups och olika fiskar som man kan låsa upp.
+              Skrivet i C# med MonoGame. Har du klagomål om spelets funktion? Det har jag med, men spelet gav mig ett A i Programmering 1. Och återigen,
+              det var gjort i MonoGame.
+            </p>
+            <button onclick="openURL('https://github.com/sotpotatis/FishGame/releases/download/v1.0.0/FishGame.exe')">Ladda ner!</button>
+          </div>
+        </div>
+        <!-- Info om DishWatcher -->
+        <div class="project">
+          <img alt="Skärmdump på startsidan för mitt projekt DishWatcher." src="https://20alse.ssis.nu/start_page_assets/dishwatcher.png"/>
+          <div>
+            <h3>
+              DishWatcher
+            </h3>
+            <p>
+              Mitt slutprojekt i Teknik 1 var en sensor som höll koll på alla diskmaskiner i skolan. Ja, alltså visst låter det som magi?
+              Den vet hur många koppar som stoppats in och när diskmaskinen kör. Med egen mikrokontroller, server, och egendesignat kretskort
+              och kapsel.
+            </p>
+            <button onclick="openURL('https://dishwatch.ssis.nu/')">Besök!</button>
+          </div>
+        </div>
+        <!-- Info om Click The Happy Man-spelet -->
+        <div class="project">
+          <img alt="Skärmdump på mitt spel 'Click the happy man'." src="https://20alse.ssis.nu/start_page_assets/click_the_happy_man.png"/>
+          <div>
+            <h3>
+              Click the happy man!
+            </h3>
+            <p>
+              Click the happy man är ett spel som nästintill nått kultstatus tack vare dess otroligt fantastiska webbdesign och gameplay, som har
+              ett enkelt mål som sammanfattas bra med spelets namn: Click the happy man!
+            </p>
+            <button onclick="openURL('https://20alse.ssis.nu/clicker')">Spela!</button>
+          </div>
+        </div>
+        <!-- Info om min personliga startsida -->
+        <div class="project">
+          <img alt="Skärmdump på startsidan för min skol-portfolio" src="https://20alse.ssis.nu/start_page_assets/personal_website.png"/>
+          <div>
+            <h3>
+              Skol-portfolio
+            </h3>
+            <p>
+              Jag samlar även skolprojekt jag gjort på startsidan på denna hemsida. Kolla gärna in den om du gillar den här portfolion!
+            </p>
+            <button onclick="openURL('https://20alse.ssis.nu/')">Till startsidan!</button>
+          </div>
+        </div>
+    </div>
+    <!-- Kontakt-sektion -->
+    <div id="contact"  class="content-wrapper">
+      <a name="anchor" data-for="contact">&nbsp;</a>
+      <h1>Kontakta mig</h1>
+      <p>Gillar du det du ser här eller vill du säga hej? Det finns flera sätt att kontakta mig:</p>
+      <ul>
+        <li><iconify-icon icon="fluent:mail-24-filled"></iconify-icon> Mail: <a href="mailto:20alse@stockholmscience.se">20alse@stockholmscience.se</a></li>
+        <li><iconify-icon icon="akar-icons:discord-fill"></iconify-icon></iconify-icon> Discord: <a href="discordapp.com/users/670294643321339904" target="_blank">sötpotatis!#5212</a></li>
+      </ul>
+      <p>Missa inte heller mina andra personliga hemsidor:</p>
+      <ul>
+        <li><a href="https://20alse.ssis.nu" target="_blank">20alse.ssis.nu</a> (startsida)</li>
+        <li><a href="https://albins.website" target="_blank">albins.website</a></li>
+      </ul>
+    </div>
+  </div>
+    <!--Ladda in kod (JavaScript )-->
+    <script src="main.js"></script>
+  </body>
+</html>
