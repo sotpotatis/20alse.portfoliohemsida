@@ -7,7 +7,7 @@ update-ssh-job:
     - echo "Debug - Listing."
     - ls
     - echo "Starting to push website to hem.ssis.nu..."
-    - apt install sshpass
+    - apk add sshpass
     - echo "Uploading to server..."
-    - sshpass -p $SFTP_PASSWORD sftp 20alse@hem.ssis.nu:/portfolio /portfolio
+    - sshpass -p $SFTP_PASSWORD sftp 20alse@hem.ssis.nu:/portfolio .
     - echo "Uploaded to server."
