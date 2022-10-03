@@ -2,6 +2,7 @@ variables:
   SFTP_PASSWORD: $SFTP_PASSWORD
 update-ssh-job:
   stage: deploy
+  image: alpine
   script:
     - echo "Debug - Listing."
     - ls
