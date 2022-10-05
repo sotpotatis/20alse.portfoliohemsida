@@ -1,6 +1,8 @@
 update-ssh-job:
   stage: deploy
   image: alpine
+  variables:
+    SSH_PASSWORD: $SSH_PASSWORD
   before_script:
     - apk add git
     - apk add openssh
