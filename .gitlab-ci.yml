@@ -1,12 +1,16 @@
-update-ssh-job:
+  update-ssh-job:
   stage: deploy
   image: alpine
+  before_script:
+    - apk add git
+    - apk add openssh
+    - apk add --no-cache lftp
+    - apk add sshpass
+    - apk add lftp
   script:
     - echo "Debug - Listing."
     - ls
     - echo "Starting to push website to hem.ssis.nu..."
-    - apk add sshpass
-    - apk add lftp
     - echo "Uploading to server..."
     - lftp -e "open hem.ssis.nu; user 20alse $SFTP_PASSWORD; mirror -e -P 4 -R . /public_html/portfolio/ --reverse --verbose; bye"
     - echo "Uploaded to server."
