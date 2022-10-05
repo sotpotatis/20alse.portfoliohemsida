@@ -1,8 +1,6 @@
 update-ssh-job:
   stage: deploy
   image: alpine
-  variables:
-    SSH_PASSWORD: $SSH_PASSWORD
   before_script:
     - apk add git
     - apk add openssh
@@ -19,6 +17,6 @@ update-ssh-job:
     - ls
     - echo "Starting to push website to hem.ssis.nu..."
     - echo "Uploading to server..."
-    - lftp -e "mirror -e -P 4 -R --transfer-all --reverse -X .gitignore -X .gitlab-ci.yml -X .vscode/ -X .git/ . /public_html/portfolio/ --verbose; quit" -u "20alse,${SFTP_PASSWORD}" sftp://hem.ssis.nu -p 22
+    - lftp -e "mirror -e -P 4 -R --transfer-all --reverse -X .gitignore -X .gitlab-ci.yml -X .vscode/ -X .git/ . /public_html/portfolio/ --verbose; quit" -u "$SFTP_USERNAME,$SFTP_PASSWORD" sftp://hem.ssis.nu -p 22
     - echo "Uploaded to server."
   timeout: 2min
