@@ -1,4 +1,4 @@
-  update-ssh-job:
+update-ssh-job:
   stage: deploy
   image: alpine
   before_script:
