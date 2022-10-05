@@ -8,13 +8,17 @@ body {
   margin: 0px;
 }
 
-/* Generell stil: Samuel rekommenderar att man har allt innehåll i en egen div */
+/* Generell stil: Samuel rekommenderar att man har allt innehåll i en egen div, därav stylar jag den
+som jag annars skulle stylat body */
 #main-website {
   font-family: "Poppins", "sans-serif";
 }
 /* Textstilar */
 .subheading {
   color: grey;
+}
+h2 {
+  font-size: 1.3em;
 }
 
 /* Content-wrapper: en box som innehåller text */
@@ -53,9 +57,14 @@ a [name="anchor"]{
 
 /* Wrapper för menyelement */
 #menu-items {
+  display: flex;
   margin: 1em 2em;
 }
 .menu-item {
+  display: flex;
+  flex-direction: row;
+  gap: 0em 0.25em;
+  align-items: center;
   color: white;
   padding: 1em 0.5em;
 }
