@@ -8,6 +8,6 @@ update-ssh-job:
     - apk add sshpass
     - apk add lftp
     - echo "Uploading to server..."
-    - lftp -e "open hem.ssis.nu; user 20alse $SFTP_PASSWORD; mirror -X .* -X ./portfolio/*/ --reverse --verbose; bye"
+    - lftp -e -P 4 "open hem.ssis.nu; user 20alse $SFTP_PASSWORD; mirror -R . /public_html/portfolio/ --reverse --verbose; bye"
     - echo "Uploaded to server."
   timeout: 5min
