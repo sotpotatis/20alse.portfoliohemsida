@@ -8,10 +8,15 @@ update-ssh-job:
     - apk add sshpass
     - apk add lftp
   script:
+    - mkdir /root/.ssh                                # Create .ssh directory
+    - chmod 700 /root/.ssh                            # Set permissions
+    - touch /root/.ssh/known_hosts                    # Create known_hosts files
+    - chmod 600 /root/.ssh/known_hosts                # Set permissions
+    - ssh-keyscan -H hem.ssis.nu >> /root/.ssh/known_hosts  # Add server to known_hosts
     - echo "Debug - Listing."
     - ls
     - echo "Starting to push website to hem.ssis.nu..."
     - echo "Uploading to server..."
     - lftp -e "open hem.ssis.nu; user 20alse $SFTP_PASSWORD; mirror -e -P 4 -R . /public_html/portfolio/ --reverse --verbose; bye"
     - echo "Uploaded to server."
-  timeout: 5min
+  timeout: 2min
