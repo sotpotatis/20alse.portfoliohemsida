@@ -2,24 +2,25 @@ update-ssh-job:
   stage: deploy
   image: alpine
   before_script:
+    #Installera saker som vi behöver
     - apk add git
     - apk add openssh
     - apk add --no-cache lftp
     - apk add sshpass
     - apk add lftp
   script:
-    # Add SSH to known hosts
-    - mkdir /root/.ssh                                # Create .ssh directory
-    - chmod 700 /root/.ssh                            # Set permissions
-    - touch /root/.ssh/known_hosts                    # Create known_hosts files
-    - chmod 600 /root/.ssh/known_hosts                # Set permissions
-    - ssh-keyscan -H hem.ssis.nu >> /root/.ssh/known_hosts  # Add server to known_hosts
-    # Print out debugging
-    - echo "Debug - Listing directory."
+    #Lägg till hem.ssis.nu till listan med kända värdnamn
+    - mkdir /root/.ssh                                
+    - chmod 700 /root/.ssh                            
+    - touch /root/.ssh/known_hosts                  
+    - chmod 600 /root/.ssh/known_hosts                
+    - ssh-keyscan -H hem.ssis.nu >> /root/.ssh/known_hosts
+    #Skriv ut lite debugging
+    - echo "[DEBUGGING!] Debug - mappinnehåll:"
     - ls
-    # Push website contents
-    - echo "Starting to push website to hem.ssis.nu..."
-    - echo "Uploading to server..."
+    #Pusha hemsidesinnehåll
+    - echo "[PÅ G!] Pushar hemsidan till hem.ssis.nu..."
+    - echo "[PÅ G!] Laddar upp till server..."
     - lftp -e "mirror -e -P 4 -R --transfer-all --reverse -X README.md -X .gitignore -X .gitlab-ci.yml -X portfolio_website_screenshot.png -X .vscode/ -X .git/ . /public_html/portfolio/ --verbose; quit" -u "$SFTP_USERNAME,$SFTP_PASSWORD" sftp://hem.ssis.nu -p 22
-    - echo "Uploaded to server."
+    - echo "[YAY! KLAR!] Hemsidan uppladdad!"
   timeout: 2min

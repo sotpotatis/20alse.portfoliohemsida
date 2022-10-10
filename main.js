@@ -62,14 +62,16 @@ function openURL(url) {
  */
 function updateMenuToVisibleItem() {
   let currentScrolledAnchor = null; // Den gömda länk (se html) som är den senaste man har skrollat ner för
-  for (const anchor of anchors) { // För varje gömd länk
+  for (const anchor of anchors) {
+    // För varje gömd länk
     let anchorRect = anchor.getBoundingClientRect();
-    if (window.scrollY > anchorRect.top) { // Kolla om användaren har skrollat nedanför länken
+    if (window.scrollY > anchorRect.top) {
+      // Kolla om användaren har skrollat nedanför länken
       currentScrolledAnchor = anchor;
     }
   }
   // Det finns ett fall när användaren inte har skrollat förbi någon länk. Isåfall är man längst upp på sidan, så den första länken ska visas.
-  if (currentScrolledAnchor === null){
+  if (currentScrolledAnchor === null) {
     currentScrolledAnchor = anchors[0];
   }
   activeTextBox = document.getElementById(currentScrolledAnchor.dataset.for); // Använd data-for attributet på länken för att hitta aktiv textbox
