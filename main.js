@@ -56,7 +56,7 @@ function displayActiveMenuItem(e) {
   // e.detail.shouldScroll är ett attribut som finns i eventet och är true om vi ska skrolla och false om vi bara ska uppdatera menyn.
   if (e.detail.shouldScroll) {
     console.log(
-      "%c✅Skrollat%c Skrollade till den valda menyn.",
+      "%c✅Skrollat%c Skrollade till den valda sektionen.",
       logGreenBoxStyle
     );
     activeTextBox.scrollIntoView({
