@@ -34,8 +34,9 @@ h2 {
   overflow: auto;
 }
 /* Styla osynliga länkar så att de inte syns (se JavaScript) */
-a [name="anchor"] {
+.anchor {
   margin: 0px;
+  padding: 0px;
 }
 
 /* Header: sidans sidhuvud */

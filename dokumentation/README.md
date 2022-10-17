@@ -4,11 +4,11 @@
 
 **Om hemsidan/huvudsaklig tankegång**
 
-Jag valde att göra min hemsida som en "single-page-website", alltså en hemsida där allt innehåll finns i samma HTML-fil. Länkar man klickar på i menyn skrollar på den individuella sidan snarare än länkar till en annan sida. Detta valde jag eftersom jag inspirerades av modernare hemsidor där man oftast valt att ha allt på samma sida. Man kan kalla det en "trend" inom webbdesign om man så vill. Utöver att det är modernt så vissa sektioner inom hemsidan ganska korta (har ganska lite innehåll), till exempel kontaktsidan. Att lägga detta på en egen sida skulle skapa en sida som ser väldigt tom ut.
+Jag valde att göra min hemsida som en "single-page-website", alltså en hemsida där allt innehåll finns i samma HTML-fil. Länkar man klickar på i menyn skrollar på den individuella sidan snarare än länkar till en annan sida. Detta valde jag eftersom att lägga detta på en egen sida skulle skapa en sida som ser väldigt tom ut. Vissa sektioner inom hemsidan ganska korta (har ganska lite innehåll), till exempel kontaktsidan. Dessutom inspirerades jag lite  av modernare hemsidor där man oftast valt att ha allt på samma sida. Man kan kalla det en "trend" inom webbdesign om man så vill.
 
 ## Hemsidans kodstruktur
 
-#### Innehållsformatetring (HTML-struktur)
+### Innehållsformatetring (HTML-struktur)
 
 Om man tittar från toppen av HTML-filen så är min hemsida uppdelad i dessa huvudsakliga delar om man tittar på sakers `id`:
 
@@ -28,17 +28,21 @@ Förutom detta noterar man också om man kollar igenom min kod att jag har osynl
 
 Mer om detta senare. (det är en del av skrollningsfunktionen)
 
+![Skärmdump som visar vart content-wrapper-divar finns på sidan](bilder/content_wrapper.png)
 Här är lite mer nämnvärda saker på hemsidan:
 
 **Projekt**
 
 För `project-showcase`-diven har jag lagt till en till klass, som heter `project`. Ett `project` avser något projekt jag har gjort. Jag lade till denna klass för att jag ville ha specifika stilar för projekt, t.ex. ha en bild bredvid texten (och se till att denna bild skalas korrekt).
 
+![Skärmdump som visar vart project-divar finns på sidan](bilder/project.png)
+> Markering av mina divar med klassen `project`.
+
 **Ikoner**
 
 Jag använder ikoner i kontaktsektionen och för knapparna menyn. Dessa ikoner renderar jag genom att använda ett verktyg som heter [Iconify](https://iconify.design) som låter en använda ikoner från väldigt många populära ikonpaket på en hemsida. Den lägger till taggen `iconify-icon` som jag använder. Denna renderas automatiskt när hemsidan laddas till en `<svg>`-ikon som man kan se koden för om man inspekterar sidan.
 
-#### Kodstruktur (JavaScript)
+### Kodstruktur (JavaScript)
 
 Jag använder JavaScript för att menyn på hemsidan som har knappar för att indikera det aktuella innehållsblocket man är på ska uppdateras när man skrollar på sidan. Om man skrollar på min hemsida utan att klicka någonstans i menyn så upptäcker man ändå att knapparna i menyn uppdateras dynamiskt för att indikera var någonstans man är på sidan.
 
@@ -79,7 +83,7 @@ _Skrollning vid klick på "Showcase" utan `scroll-margin-top` implementerat_.
 
 För mina "projektlådor" på sidan så ville jag ha följande layout:
 
-![Låda för att demonstrera layout](bilder/l%C3%A5dlayout.png)
+![Bild för att demonstrera eftersökt layout för projektlådor](bilder/l%C3%A5dlayout.png)
 
 För att åstadkomma detta behövde jag använda någon form av dynamisk positionering. Jag bestämde mig för att använda `grid` eftersom jag redan visste att jag ville att innehållet skulle disponeras med hjälp av procent (se skärmdump). Detta är enkelt att göra i grid då man har ett CSS-attribut som heter `grid-template-columns` där man kan definiera hur kolumnerna ska disponeras på ett intuitivt sätt:
 
