@@ -105,6 +105,14 @@ function updateMenuToVisibleItem() {
   document.dispatchEvent(menuItemScrolledTo); // Skicka ut event som säger att menyknapp har uppdateras
 }
 
+/**
+ * Funktion för att skrolla till sektionen med kontakt. Denna funktion används för min hero-knapp.
+ */
+function scrollToContact() {
+  activeTextBox = document.getElementById("contact");
+  document.dispatchEvent(menuItemChanged);
+}
+
 // Lägg till events som anropar funktionerna ovan när de bör anropas.
 document.addEventListener("menuItemChanged", displayActiveMenuItem); // Uppdatera menyn när en ny menyflik väljs
 document.dispatchEvent(menuItemScrolledTo); // Se till att menyn uppdateras vid sidans start

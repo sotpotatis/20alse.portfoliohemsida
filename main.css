@@ -23,6 +23,23 @@ h2 {
   font-size: 1.3em;
 }
 
+/* Allmänna stilar för knappar  och för hero-knapp */
+button {
+  break-before: always;
+  padding: 0.5em 3em;
+  color: white;
+  border: 0px;
+}
+button:hover {
+  cursor: pointer;
+}
+
+.hero-button {
+  font-size: 1.1em;
+  background-color: #384457;
+  border-radius: 2em;
+}
+
 /* Content-wrapper: en box som innehåller text */
 .content-wrapper {
   background-color: white;
@@ -107,14 +124,11 @@ text, och en knapp. */
   object-fit: contain;
 }
 .project button {
-  break-before: always;
-  padding: 0.5em 3em;
-  color: white;
   background-color: #455a64;
   border: 0.1em solid gray;
 }
+
 .project button:hover {
-  cursor: pointer;
   text-decoration: underline;
 }
 
